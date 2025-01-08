@@ -43,7 +43,7 @@ pnpm start
    - Ask the agent what items are available for sale
    - Select the product you want to purchase
    - Confirm your selection and approve the payment transaction
-   - Provide your email address for the purchase receipt
+   - Provide your email address in order to receive a purchase receipt
    - Submit your shipping information
 
 3. Check your email for:
