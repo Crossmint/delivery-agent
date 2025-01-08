@@ -1,18 +1,17 @@
 # Delivery Agent
 
-A CLI-based delivery agent that helps you make purchases using cryptocurrency.
+A CLI-based delivery agent that buys real world items from Worldstore, an onchain marketplace.
 
 ## Prerequisites
 
 - Node.js and pnpm installed
 - 25 USDC in your wallet
-- Base Sepolia testnet configured in your wallet
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone [repository-url]
+git clone https://github.com/worldstore/delivery-agent.git
 cd delivery-agent
 ```
 
@@ -26,12 +25,14 @@ pnpm install
 WALLET_PRIVATE_KEY=your_wallet_private_key
 CROSSMINT_SERVER_API_KEY=your_crossmint_api_key
 RPC_PROVIDER_URL=your_base_rpc_url
+OPENAI_API_KEY=your_openai_api_key
 ```
 
 Where:
 - `WALLET_PRIVATE_KEY`: Your wallet's private key (will be used for payment)
 - `CROSSMINT_SERVER_API_KEY`: API key for Crossmint's headless checkout
 - `RPC_PROVIDER_URL`: Base network RPC endpoint for transaction processing
+- `OPENAI_API_KEY`: Your OpenAI API key for AI interactions
 
 ## Usage
 
@@ -40,7 +41,7 @@ Where:
 pnpm start
 ```
 
-2. Follow the interactive CLI prompts:
+2. Interact with the agent:
    - Ask the agent what items are available for sale
    - Select the product you want to purchase
    - Confirm your selection and approve the payment transaction
