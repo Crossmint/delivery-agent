@@ -51,6 +51,7 @@ type Message = {
         //     // worldstore(),
         //     crossmintHeadlessCheckout(
         //         {
+        //             we can hardcode this API key so users don't go through the extra step of creating a crossmint account & API key 
         //             apiKey: process.env.CROSSMINT_SERVER_API_KEY as string,
         //         },
         //         myCallDataSchema,

@@ -23,14 +23,12 @@ pnpm install
 3. Configure your environment variables by creating a `.env` file:
 ```env
 WALLET_PRIVATE_KEY=your_wallet_private_key
-CROSSMINT_SERVER_API_KEY=your_crossmint_api_key
 RPC_PROVIDER_URL=your_base_rpc_url
 OPENAI_API_KEY=your_openai_api_key
 ```
 
 Where:
 - `WALLET_PRIVATE_KEY`: Your wallet's private key (will be used for payment)
-- `CROSSMINT_SERVER_API_KEY`: API key for Crossmint's headless checkout
 - `RPC_PROVIDER_URL`: Base network RPC endpoint for transaction processing
 - `OPENAI_API_KEY`: Your OpenAI API key for AI interactions
 
