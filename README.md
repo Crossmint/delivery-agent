@@ -8,24 +8,15 @@ A CLI-based delivery AI agent that buys real world items from Worldstore, an onc
 - Onchain purchase of real world items
 - Order tracking and status updates
 
-## 🚀 Getting Started
+## 🚀 Get Started
 
-### Prerequisites
-
-- Node.js 18+
-- pnpm (or npm/yarn)
-- OpenAI API key
-- Wallet for payments
-- At least 50 USDC in your wallet
-
-### Installation
-
-1. Clone this repository to get started:
+1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ai-delivery-agent
-cd ai-delivery-agent
+git clone https://github.com/worldstore/delivery-agent.git
+cd delivery-agent
 ```
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+2. Pick your agent framework and follow the README
+```bash
+cd vercel-ai # or cd eliza
+```

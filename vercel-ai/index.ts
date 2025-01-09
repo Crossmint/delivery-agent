@@ -74,7 +74,7 @@ type Message = {
                 model: openai("gpt-4o-mini"),
                 tools: tools,
                 maxSteps: 10,
-                prompt: `You are an experienced merchant. You are able to help users with their transactions.
+                prompt: `You are an experienced shopping assistant. You are able to help users with their transactions.
                 
                 Previous conversation:
                 ${conversationHistory.map((m) => `${m.role}: ${m.content}`).join("\n")}
