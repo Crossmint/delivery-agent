@@ -16,7 +16,15 @@ git clone https://github.com/worldstore/delivery-agent.git
 cd delivery-agent
 ```
 
-2. Pick your agent framework and follow the README
+2. Navigate to the directory of the agent framework you want to use:
 ```bash
-cd vercel-ai # or cd eliza
+# For Vercel AI implementation
+cd vercel-ai 
+
+# For Eliza implementation
+cd eliza
 ```
+
+3. Follow the README
+- [Vercel AI](./vercel-ai/README.md)
+- [Eliza](./eliza/README.md)
