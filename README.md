@@ -17,4 +17,4 @@ cd delivery-agent
 ```
 2. Choose your agent framework and follow instructions in its README:
 - [Eliza](./README_Eliza.md)
-- [Vercel AI](./vercel-ai/README.md)
+- [Vercel AI](./README_Vercel.md)
