@@ -32,7 +32,7 @@ cp .env.example .env
 ```bash
 pnpm i
 pnpm build
-pnpm start --characters="characters/butler.character.json"
+pnpm start --characters="characters/jarvis.character.json"
 ```
 2. In a new terminal, launch your chat:
 
