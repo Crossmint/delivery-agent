@@ -15,16 +15,6 @@ A CLI-based delivery AI agent that buys real world items from Worldstore, an onc
 git clone https://github.com/worldstore/delivery-agent.git
 cd delivery-agent
 ```
-
-2. Navigate to the directory of the agent framework you want to use:
-```bash
-# For Vercel AI implementation
-cd vercel-ai 
-
-# For Eliza implementation
-cd eliza
-```
-
-3. Follow the README
+2. Choose your agent framework and follow instructions in its README:
+- [Eliza](./README_Eliza.md)
 - [Vercel AI](./vercel-ai/README.md)
-- [Eliza](./eliza/README.md)

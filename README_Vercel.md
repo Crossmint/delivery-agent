@@ -10,6 +10,7 @@
 
 1. Install dependencies:
 ```bash
+cd vercel-ai
 pnpm install
 ```
 
