@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Node.js & pnpm (v23+) installed
+- Node (v23+) & pnpm installed
 - At least 50 USDC in your wallet
 - OpenAI API key
 
@@ -10,7 +10,7 @@
 
 1. Clone the Eliza repository & switch to the `eliza-product-delivery` branch:
 ```bash
-git clone https://github.com/elizaOS/eliza.git
+git clone https://github.com/filipposl/eliza
 cd eliza
 git checkout eliza-product-delivery
 ```

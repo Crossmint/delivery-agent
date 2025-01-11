@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Node.js & pnpm installed
+- Node & pnpm installed
 - At least 50 USDC in your wallet
 - OpenAI API key
 
