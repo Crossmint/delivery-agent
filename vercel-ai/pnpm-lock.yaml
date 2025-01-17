@@ -17,6 +17,9 @@ importers:
       '@goat-sdk/plugin-crossmint-headless-checkout':
         specifier: latest
         version: 0.0.3(@goat-sdk/core@0.4.5(zod@3.23.8))(typescript@5.7.3)(viem@2.22.4(typescript@5.7.3)(zod@3.23.8))
+      '@goat-sdk/plugin-worldstore':
+        specifier: latest
+        version: 0.0.2(@goat-sdk/core@0.4.5(zod@3.23.8))
       '@goat-sdk/wallet-viem':
         specifier: latest
         version: 0.2.5(@goat-sdk/wallet-evm@0.2.5(@goat-sdk/core@0.4.5(zod@3.23.8))(typescript@5.7.3))(viem@2.22.4(typescript@5.7.3)(zod@3.23.8))
@@ -129,6 +132,11 @@ packages:
     peerDependencies:
       '@goat-sdk/core': 0.4.5
       viem: 2.21.49
+
+  '@goat-sdk/plugin-worldstore@0.0.2':
+    resolution: {integrity: sha512-ThZqe27gPSI/WI0aKXWsmjzUJ9dEyLfbFiaERJmVv9e6cVip23fFayKff0wLM73qRn2JhYtPFh34yRhIjciTRg==}
+    peerDependencies:
+      '@goat-sdk/core': 0.4.6
 
   '@goat-sdk/wallet-evm@0.2.5':
     resolution: {integrity: sha512-RmMV8NP8IIg9IUKj+Laz65rnBUpmvLiGGSOsJmMeNAkthyiGKYhx6NxyvpFudhgDn98B4G/hOBPsMKH7ySEKkw==}
@@ -546,6 +554,11 @@ snapshots:
       - bufferutil
       - typescript
       - utf-8-validate
+
+  '@goat-sdk/plugin-worldstore@0.0.2(@goat-sdk/core@0.4.5(zod@3.23.8))':
+    dependencies:
+      '@goat-sdk/core': 0.4.5(zod@3.23.8)
+      zod: 3.23.8
 
   '@goat-sdk/wallet-evm@0.2.5(@goat-sdk/core@0.4.5(zod@3.23.8))(typescript@5.7.3)':
     dependencies:
