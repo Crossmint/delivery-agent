@@ -18,7 +18,7 @@ cd delivery-agent
 
 2. Prerequisites:
 - Node & pnpm installed
-- Have your wallet's private key ready (if you can't find it, you can generate a new wallet by running `pnpm generate-wallet` and transfer USDC to it)
+- Have your wallet's private key ready (otherwise, generate new wallet via `pnpm generate-wallet`)
 - Hold USDC 
 - OpenAI API key
 
