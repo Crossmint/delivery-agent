@@ -46,7 +46,8 @@ pnpm start
 7. Interact with the agent:
    - Tell the agent what you are looking for (i.e. "I want to order some goodies for the weekend or "Do you see any games available for sale?")
    - Specify which product you want to buy from the ones available
-   - Provide your email, shipping info, and confirm payment
+   - Provide your email to confirm payment
+   - Ship the product to your address by providing your name and address
 
 ## 🚀 Keep track of your order
 
