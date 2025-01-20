@@ -4,7 +4,8 @@
   "description": "Worldstore delivery agent",
   "main": "index.ts",
   "scripts": {
-    "start": "pnpm dlx ts-node index.ts"
+    "start": "pnpm dlx ts-node index.ts",
+    "generate-wallet": "pnpm dlx ts-node walletScript.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "latest",
