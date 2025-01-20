@@ -44,7 +44,10 @@ pnpm start
 ```
 
 7. Interact with the agent:
-   - Tell the agent what you are looking for (i.e. "I want to order some goodies for the weekend or "Do you see any games available for sale?")
+   - Tell the agent what you are looking for, e.g.
+      - "I want to order some goodies for the weekend"
+      - "Do you see any games available for sale?"
+      - "I want cookies"
    - Specify which product you want to buy from the ones available
    - Provide your email to confirm payment
    - Ship the product to your address by providing your name and address
