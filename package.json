@@ -8,17 +8,17 @@
     "generate-wallet": "pnpm dlx ts-node walletScript.ts"
   },
   "dependencies": {
-    "@ai-sdk/openai": "latest",
-    "@goat-sdk/adapter-vercel-ai": "latest",
-    "@goat-sdk/plugin-crossmint-headless-checkout": "latest",
-    "@goat-sdk/plugin-worldstore": "latest",
-    "@goat-sdk/wallet-viem": "latest",
-    "@goat-sdk/core": "latest",
-    "ai": "latest",
+    "@ai-sdk/openai": "1.1.0",
+    "@goat-sdk/adapter-vercel-ai": "0.2.7",
+    "@goat-sdk/plugin-crossmint-headless-checkout": "0.0.5",
+    "@goat-sdk/plugin-worldstore": "0.0.2",
+    "@goat-sdk/wallet-viem": "0.2.6",
+    "@goat-sdk/core": "0.4.6",
+    "ai": "4.1.0",
     "dotenv": "^16.3.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
-    "viem": "^2.0.0",
+    "viem": "2.21.49",
     "zod": "3.23.8"
   },
   "devDependencies": {

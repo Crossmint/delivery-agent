@@ -9,26 +9,26 @@ importers:
   .:
     dependencies:
       '@ai-sdk/openai':
-        specifier: latest
-        version: 1.0.15(zod@3.23.8)
+        specifier: 1.1.0
+        version: 1.1.0(zod@3.23.8)
       '@goat-sdk/adapter-vercel-ai':
-        specifier: latest
-        version: 0.2.6(@goat-sdk/core@0.4.6(zod@3.23.8))(ai@4.0.30(react@19.0.0)(zod@3.23.8))(zod@3.23.8)
+        specifier: 0.2.7
+        version: 0.2.7(@goat-sdk/core@0.4.6(zod@3.23.8))(ai@4.1.0(react@19.0.0)(zod@3.23.8))(zod@3.23.8)
       '@goat-sdk/core':
-        specifier: latest
+        specifier: 0.4.6
         version: 0.4.6(zod@3.23.8)
       '@goat-sdk/plugin-crossmint-headless-checkout':
-        specifier: latest
-        version: 0.0.3(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3)(viem@2.22.4(typescript@5.7.3)(zod@3.23.8))
+        specifier: 0.0.5
+        version: 0.0.5(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3)(viem@2.21.49(typescript@5.7.3)(zod@3.23.8))
       '@goat-sdk/plugin-worldstore':
-        specifier: latest
+        specifier: 0.0.2
         version: 0.0.2(@goat-sdk/core@0.4.6(zod@3.23.8))
       '@goat-sdk/wallet-viem':
-        specifier: latest
-        version: 0.2.5(@goat-sdk/wallet-evm@0.2.5(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3))(viem@2.22.4(typescript@5.7.3)(zod@3.23.8))
+        specifier: 0.2.6
+        version: 0.2.6(@goat-sdk/wallet-evm@0.2.6(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3))(viem@2.21.49(typescript@5.7.3)(zod@3.23.8))
       ai:
-        specifier: latest
-        version: 4.0.30(react@19.0.0)(zod@3.23.8)
+        specifier: 4.1.0
+        version: 4.1.0(react@19.0.0)(zod@3.23.8)
       dotenv:
         specifier: ^16.3.1
         version: 16.4.7
@@ -39,8 +39,8 @@ importers:
         specifier: ^5.3.3
         version: 5.7.3
       viem:
-        specifier: ^2.0.0
-        version: 2.22.4(typescript@5.7.3)(zod@3.23.8)
+        specifier: 2.21.49
+        version: 2.21.49(typescript@5.7.3)(zod@3.23.8)
       zod:
         specifier: 3.23.8
         version: 3.23.8
@@ -54,14 +54,14 @@ packages:
   '@adraffy/ens-normalize@1.11.0':
     resolution: {integrity: sha512-/3DDPKHqqIqxUULp8yP4zODUY1i+2xvVWsv8A79xGWdCAG+8sb0hRh0Rk2QyOJUnnbyPUAZYcpBuRe3nS2OIUg==}
 
-  '@ai-sdk/openai@1.0.15':
-    resolution: {integrity: sha512-acX2crxBrkyfIlTtJGGX/YD/ck6L+LpPdaYQqGiahacHX07yn1nUE1jlnNLmTnDFoMwgxJXXt/wI16LC3ybYZg==}
+  '@ai-sdk/openai@1.1.0':
+    resolution: {integrity: sha512-D2DaGMK89yYgO32n4Gr7gBJeJGGGS27gdfzYFMRDXlZmKh7VW1WXBp3FXxDwpmt0CgLoVI4qV8lf+gslah+kWw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.0.0
 
-  '@ai-sdk/provider-utils@2.0.6':
-    resolution: {integrity: sha512-nB0rPwIBSCk0UkfdkprAxQ45ZjfKlk+Ts5zvIBQkJ5SnTCL9meg6bW65aomQrxhdvtqZML2jjaWTI8/l6AIVlQ==}
+  '@ai-sdk/provider-utils@2.1.0':
+    resolution: {integrity: sha512-rBUabNoyB25PBUjaiMSk86fHNSCqTngNZVvXxv8+6mvw47JX5OexW+ZHRsEw8XKTE8+hqvNFVzctaOrRZ2i9Zw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.0.0
@@ -73,8 +73,8 @@ packages:
     resolution: {integrity: sha512-lJi5zwDosvvZER3e/pB8lj1MN3o3S7zJliQq56BRr4e9V3fcRyFtwP0JRxaRS5vHYX3OJ154VezVoQNrk0eaKw==}
     engines: {node: '>=18'}
 
-  '@ai-sdk/react@1.0.8':
-    resolution: {integrity: sha512-vzlvw+YAAm1oc/8AWz+bq8Ff7ibInzQOuiJenMr1oHnCDPHkMKaOdJWX3/zVQR+1IjZ8Z38TtCR275YEA9quww==}
+  '@ai-sdk/react@1.1.0':
+    resolution: {integrity: sha512-U5lBbLyf1pw79xsk5dgHSkBv9Jta3xzWlOLpxsmHlxh1X94QOH3e1gm+nioQ/JvTuHLm23j2tz3i4MpMdchwXQ==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
@@ -85,8 +85,8 @@ packages:
       zod:
         optional: true
 
-  '@ai-sdk/ui-utils@1.0.7':
-    resolution: {integrity: sha512-W9yWlrnSF00zo2qDSsrooPEcKsAGIuGzHNRfkivbwjHj7ZuHl1tLNpvmAWT59sN8aeN0sM4iwa68OjT2MygqSA==}
+  '@ai-sdk/ui-utils@1.1.0':
+    resolution: {integrity: sha512-ETXwdHaHwzC7NIehbthDFGwsTFk+gNtRL/lm85nR4WDFvvYQptoM/7wTANs0p0H7zumB3Ep5hKzv0Encu8vSRw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.0.0
@@ -118,10 +118,10 @@ packages:
       '@datadog/browser-rum':
         optional: true
 
-  '@goat-sdk/adapter-vercel-ai@0.2.6':
-    resolution: {integrity: sha512-3PcTyUtWjQ3PnezLkkjncW7HEKmPCdd0acHBQA+jSMsrqTMNK+D7fvT8pNZSHX93pkbQLOodfTNCdyV+V6SvpA==}
+  '@goat-sdk/adapter-vercel-ai@0.2.7':
+    resolution: {integrity: sha512-y6W7ZOpe4bh7PiafzcY87RsgbVBr6ESKGdxLbJ1bQNbm/6DPJyXC8lpRi4zy+OOzbHtwupCl50w7jteJuwf6XA==}
     peerDependencies:
-      '@goat-sdk/core': 0.4.5
+      '@goat-sdk/core': 0.4.6
       ai: 4.0.3
       zod: ^3.0.0
 
@@ -130,10 +130,10 @@ packages:
     peerDependencies:
       zod: ^3.0.0
 
-  '@goat-sdk/plugin-crossmint-headless-checkout@0.0.3':
-    resolution: {integrity: sha512-FVm0yUR0erYfaLZoXK/6k1RFxjwktcPs5ym8W616Zr80kfXVyMNy1lcpwKwQITYsQ9sGtxJwqS4EAVGQ7pgSAQ==}
+  '@goat-sdk/plugin-crossmint-headless-checkout@0.0.5':
+    resolution: {integrity: sha512-TTpWpSI8Q3LwL7y4ksiajZJh9ueVplcu6GZL9QEwOOKdCIQ/SCA1L8A67Zv3bCHyuHSRv6tSxVaPPi3Bi6Fzvw==}
     peerDependencies:
-      '@goat-sdk/core': 0.4.5
+      '@goat-sdk/core': 0.4.6
       viem: 2.21.49
 
   '@goat-sdk/plugin-worldstore@0.0.2':
@@ -141,15 +141,15 @@ packages:
     peerDependencies:
       '@goat-sdk/core': 0.4.6
 
-  '@goat-sdk/wallet-evm@0.2.5':
-    resolution: {integrity: sha512-RmMV8NP8IIg9IUKj+Laz65rnBUpmvLiGGSOsJmMeNAkthyiGKYhx6NxyvpFudhgDn98B4G/hOBPsMKH7ySEKkw==}
+  '@goat-sdk/wallet-evm@0.2.6':
+    resolution: {integrity: sha512-KzC2jbfGi0CsVLLWyvxQheFWNuKMKiafgjyGVufK0j6aa0fY34tx4aTXka6yavY14fZDeZFlJmPAjzPhMZmXXA==}
     peerDependencies:
-      '@goat-sdk/core': 0.4.5
+      '@goat-sdk/core': 0.4.6
 
-  '@goat-sdk/wallet-viem@0.2.5':
-    resolution: {integrity: sha512-QDTHDTAl9c5layuGNiv6ULrdhFKxZ/RywjWeXvMCv66Fn9DIr66BbA4vapoEDVFr7vKU+XUj0cOF5riSV6LadA==}
+  '@goat-sdk/wallet-viem@0.2.6':
+    resolution: {integrity: sha512-fUhuE6XIlLc9y5dgqTYWNTqls8Qb97R1q89VPOUMz5C9GYx/jwcwdXBmZkH8zbKa+w6UrNeMy6FnHBzlCCXxPg==}
     peerDependencies:
-      '@goat-sdk/wallet-evm': 0.2.5
+      '@goat-sdk/wallet-evm': 0.2.6
       viem: 2.21.49
 
   '@jridgewell/resolve-uri@3.1.2':
@@ -233,17 +233,6 @@ packages:
       zod:
         optional: true
 
-  abitype@1.0.7:
-    resolution: {integrity: sha512-ZfYYSktDQUwc2eduYu8C4wOs+RDPmnRYMh7zNfzeMtGGgb0U+6tLGjixUic6mXf5xKKCcgT5Qp6cv39tOARVFw==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-      zod: ^3 >=3.22.0
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-      zod:
-        optional: true
-
   abitype@1.0.8:
     resolution: {integrity: sha512-ZeiI6h3GnW06uYDLx0etQtX/p8E24UaHHBj57RSjK7YBFe7iuVn07EDpOeP451D06sF27VOz9JJPlIKJmXgkEg==}
     peerDependencies:
@@ -264,8 +253,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  ai@4.0.30:
-    resolution: {integrity: sha512-pv9D31Mp+10B7RZrvMM0NV4P+XMif52mwN8uwvTRUdurTnscqTe8X7heBN+LwsWlD8EuQnoY4Sale7RED52ldA==}
+  ai@4.1.0:
+    resolution: {integrity: sha512-95nI9hBSSAKPrMnpJbaB3yqvh+G8BS4/EtFz3HR0HgEDJpxC0R6JAlB8+B/BXHd/roNGBrS08Z3Zain/6OFSYA==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
@@ -351,14 +340,6 @@ packages:
       typescript:
         optional: true
 
-  ox@0.6.0:
-    resolution: {integrity: sha512-blUzTLidvUlshv0O02CnLFqBLidNzPoAZdIth894avUAotTuWziznv6IENv5idRuOSSP3dH8WzcYw84zVdu0Aw==}
-    peerDependencies:
-      typescript: '>=5.4.0'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
   react@19.0.0:
     resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
     engines: {node: '>=0.10.0'}
@@ -423,14 +404,6 @@ packages:
       typescript:
         optional: true
 
-  viem@2.22.4:
-    resolution: {integrity: sha512-35/T2ySpUM0kUVEy2SkaWIAIabSRzF/IZxDdnLxuaI1pwURC92ZiHa9J9nL1rWGl0HTyAqUxcycgJEpOvHrcQA==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
   webauthn-p256@0.0.10:
     resolution: {integrity: sha512-EeYD+gmIT80YkSIDb2iWq0lq2zbHo1CxHlQTeJ+KkCILWpVy3zASH3ByD4bopzfk0uCwXxLqKGLqp2W4O28VFA==}
 
@@ -465,13 +438,13 @@ snapshots:
 
   '@adraffy/ens-normalize@1.11.0': {}
 
-  '@ai-sdk/openai@1.0.15(zod@3.23.8)':
+  '@ai-sdk/openai@1.1.0(zod@3.23.8)':
     dependencies:
       '@ai-sdk/provider': 1.0.4
-      '@ai-sdk/provider-utils': 2.0.6(zod@3.23.8)
+      '@ai-sdk/provider-utils': 2.1.0(zod@3.23.8)
       zod: 3.23.8
 
-  '@ai-sdk/provider-utils@2.0.6(zod@3.23.8)':
+  '@ai-sdk/provider-utils@2.1.0(zod@3.23.8)':
     dependencies:
       '@ai-sdk/provider': 1.0.4
       eventsource-parser: 3.0.0
@@ -484,20 +457,20 @@ snapshots:
     dependencies:
       json-schema: 0.4.0
 
-  '@ai-sdk/react@1.0.8(react@19.0.0)(zod@3.23.8)':
+  '@ai-sdk/react@1.1.0(react@19.0.0)(zod@3.23.8)':
     dependencies:
-      '@ai-sdk/provider-utils': 2.0.6(zod@3.23.8)
-      '@ai-sdk/ui-utils': 1.0.7(zod@3.23.8)
+      '@ai-sdk/provider-utils': 2.1.0(zod@3.23.8)
+      '@ai-sdk/ui-utils': 1.1.0(zod@3.23.8)
       swr: 2.3.0(react@19.0.0)
       throttleit: 2.1.0
     optionalDependencies:
       react: 19.0.0
       zod: 3.23.8
 
-  '@ai-sdk/ui-utils@1.0.7(zod@3.23.8)':
+  '@ai-sdk/ui-utils@1.1.0(zod@3.23.8)':
     dependencies:
       '@ai-sdk/provider': 1.0.4
-      '@ai-sdk/provider-utils': 2.0.6(zod@3.23.8)
+      '@ai-sdk/provider-utils': 2.1.0(zod@3.23.8)
       zod-to-json-schema: 3.24.1(zod@3.23.8)
     optionalDependencies:
       zod: 3.23.8
@@ -533,10 +506,10 @@ snapshots:
     dependencies:
       '@datadog/browser-core': 4.42.2
 
-  '@goat-sdk/adapter-vercel-ai@0.2.6(@goat-sdk/core@0.4.6(zod@3.23.8))(ai@4.0.30(react@19.0.0)(zod@3.23.8))(zod@3.23.8)':
+  '@goat-sdk/adapter-vercel-ai@0.2.7(@goat-sdk/core@0.4.6(zod@3.23.8))(ai@4.1.0(react@19.0.0)(zod@3.23.8))(zod@3.23.8)':
     dependencies:
       '@goat-sdk/core': 0.4.6(zod@3.23.8)
-      ai: 4.0.30(react@19.0.0)(zod@3.23.8)
+      ai: 4.1.0(react@19.0.0)(zod@3.23.8)
       zod: 3.23.8
 
   '@goat-sdk/core@0.4.6(zod@3.23.8)':
@@ -544,13 +517,13 @@ snapshots:
       reflect-metadata: 0.2.2
       zod: 3.23.8
 
-  '@goat-sdk/plugin-crossmint-headless-checkout@0.0.3(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3)(viem@2.22.4(typescript@5.7.3)(zod@3.23.8))':
+  '@goat-sdk/plugin-crossmint-headless-checkout@0.0.5(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3)(viem@2.21.49(typescript@5.7.3)(zod@3.23.8))':
     dependencies:
       '@crossmint/client-sdk-base': 1.4.4
       '@crossmint/common-sdk-base': 0.3.1
       '@goat-sdk/core': 0.4.6(zod@3.23.8)
-      '@goat-sdk/wallet-evm': 0.2.5(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3)
-      viem: 2.22.4(typescript@5.7.3)(zod@3.23.8)
+      '@goat-sdk/wallet-evm': 0.2.6(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3)
+      viem: 2.21.49(typescript@5.7.3)(zod@3.23.8)
       zod: 3.23.8
     transitivePeerDependencies:
       - '@datadog/browser-rum'
@@ -563,7 +536,7 @@ snapshots:
       '@goat-sdk/core': 0.4.6(zod@3.23.8)
       zod: 3.23.8
 
-  '@goat-sdk/wallet-evm@0.2.5(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3)':
+  '@goat-sdk/wallet-evm@0.2.6(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3)':
     dependencies:
       '@goat-sdk/core': 0.4.6(zod@3.23.8)
       abitype: 1.0.8(typescript@5.7.3)(zod@3.23.8)
@@ -574,10 +547,10 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@goat-sdk/wallet-viem@0.2.5(@goat-sdk/wallet-evm@0.2.5(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3))(viem@2.22.4(typescript@5.7.3)(zod@3.23.8))':
+  '@goat-sdk/wallet-viem@0.2.6(@goat-sdk/wallet-evm@0.2.6(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3))(viem@2.21.49(typescript@5.7.3)(zod@3.23.8))':
     dependencies:
-      '@goat-sdk/wallet-evm': 0.2.5(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3)
-      viem: 2.22.4(typescript@5.7.3)(zod@3.23.8)
+      '@goat-sdk/wallet-evm': 0.2.6(@goat-sdk/core@0.4.6(zod@3.23.8))(typescript@5.7.3)
+      viem: 2.21.49(typescript@5.7.3)(zod@3.23.8)
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
@@ -649,11 +622,6 @@ snapshots:
       typescript: 5.7.3
       zod: 3.23.8
 
-  abitype@1.0.7(typescript@5.7.3)(zod@3.23.8):
-    optionalDependencies:
-      typescript: 5.7.3
-      zod: 3.23.8
-
   abitype@1.0.8(typescript@5.7.3)(zod@3.23.8):
     optionalDependencies:
       typescript: 5.7.3
@@ -665,15 +633,14 @@ snapshots:
 
   acorn@8.14.0: {}
 
-  ai@4.0.30(react@19.0.0)(zod@3.23.8):
+  ai@4.1.0(react@19.0.0)(zod@3.23.8):
     dependencies:
       '@ai-sdk/provider': 1.0.4
-      '@ai-sdk/provider-utils': 2.0.6(zod@3.23.8)
-      '@ai-sdk/react': 1.0.8(react@19.0.0)(zod@3.23.8)
-      '@ai-sdk/ui-utils': 1.0.7(zod@3.23.8)
+      '@ai-sdk/provider-utils': 2.1.0(zod@3.23.8)
+      '@ai-sdk/react': 1.1.0(react@19.0.0)(zod@3.23.8)
+      '@ai-sdk/ui-utils': 1.1.0(zod@3.23.8)
       '@opentelemetry/api': 1.9.0
       jsondiffpatch: 0.6.0
-      zod-to-json-schema: 3.24.1(zod@3.23.8)
     optionalDependencies:
       react: 19.0.0
       zod: 3.23.8
@@ -725,25 +692,11 @@ snapshots:
   ox@0.1.2(typescript@5.7.3)(zod@3.23.8):
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
-      '@noble/curves': 1.6.0
-      '@noble/hashes': 1.5.0
-      '@scure/bip32': 1.5.0
-      '@scure/bip39': 1.4.0
-      abitype: 1.0.8(typescript@5.7.3)(zod@3.23.8)
-      eventemitter3: 5.0.1
-    optionalDependencies:
-      typescript: 5.7.3
-    transitivePeerDependencies:
-      - zod
-
-  ox@0.6.0(typescript@5.7.3)(zod@3.23.8):
-    dependencies:
-      '@adraffy/ens-normalize': 1.11.0
       '@noble/curves': 1.7.0
       '@noble/hashes': 1.6.1
       '@scure/bip32': 1.6.0
       '@scure/bip39': 1.5.0
-      abitype: 1.0.7(typescript@5.7.3)(zod@3.23.8)
+      abitype: 1.0.8(typescript@5.7.3)(zod@3.23.8)
       eventemitter3: 5.0.1
     optionalDependencies:
       typescript: 5.7.3
@@ -805,24 +758,6 @@ snapshots:
       abitype: 1.0.6(typescript@5.7.3)(zod@3.23.8)
       isows: 1.0.6(ws@8.18.0)
       ox: 0.1.2(typescript@5.7.3)(zod@3.23.8)
-      webauthn-p256: 0.0.10
-      ws: 8.18.0
-    optionalDependencies:
-      typescript: 5.7.3
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - zod
-
-  viem@2.22.4(typescript@5.7.3)(zod@3.23.8):
-    dependencies:
-      '@noble/curves': 1.7.0
-      '@noble/hashes': 1.6.1
-      '@scure/bip32': 1.6.0
-      '@scure/bip39': 1.5.0
-      abitype: 1.0.7(typescript@5.7.3)(zod@3.23.8)
-      isows: 1.0.6(ws@8.18.0)
-      ox: 0.6.0(typescript@5.7.3)(zod@3.23.8)
       webauthn-p256: 0.0.10
       ws: 8.18.0
     optionalDependencies:
