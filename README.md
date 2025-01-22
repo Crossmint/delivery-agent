@@ -27,9 +27,9 @@ cd delivery-agent
 pnpm install
 ```
 
-4. Copy `.env.example` to `.env` to fill in the appropriate values.
+4. Copy `.env.template` to `.env` to fill in the appropriate values.
 ```bash
-cp .env.example .env
+cp .env.template .env
 ```
 
 5. Configure your variables:
