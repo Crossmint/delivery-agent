@@ -4,12 +4,14 @@
   "description": "Worldstore delivery agent",
   "main": "index.ts",
   "scripts": {
-    "start": "pnpm dlx ts-node index.ts",
+    "start:human": "pnpm dlx ts-node human-cli.ts",
+    "start:agent": "pnpm dlx ts-node agent-store.ts",
     "generate-wallet": "pnpm dlx ts-node walletScript.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "1.1.0",
     "@goat-sdk/adapter-vercel-ai": "0.2.7",
+    "@goat-sdk/crossmint": "0.3.15",
     "@goat-sdk/plugin-crossmint-headless-checkout": "0.0.5",
     "@goat-sdk/plugin-worldstore": "0.0.2",
     "@goat-sdk/wallet-viem": "0.2.6",

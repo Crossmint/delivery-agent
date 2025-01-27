@@ -8,14 +8,15 @@ import { privateKeyToAccount } from "viem/accounts";
 import { base } from "viem/chains";
 
 import { getOnChainTools } from "@goat-sdk/adapter-vercel-ai";
-// import { worldstore } from "@goat-sdk/plugin-worldstore";
 import { viem } from "@goat-sdk/wallet-viem";
 import { z } from "zod";
 import { crossmintHeadlessCheckout } from "@goat-sdk/plugin-crossmint-headless-checkout";
 
-import "dotenv/config";
 import { LoadingSpinner } from "./LoadingSpinner";
 import { worldstore } from "@goat-sdk/plugin-worldstore";
+import { crossmint } from "@goat-sdk/crossmint";
+
+import "dotenv/config";
 
 const asciiArt = `
 888       888  .d88888b.  8888888b.  888      8888888b.   .d8888b. 88888888888 .d88888b.  8888888b.  8888888888 
@@ -59,15 +60,22 @@ const worldstoreSchema = z.object({
   totalPrice: z.string(),
 });
 
+const apiKey = process.env.CROSSMINT_API_KEY;
+if (!apiKey) {
+  throw new Error("CROSSMINT_API_KEY is not set");
+}
+
+const { wallets } = crossmint(apiKey);
+
 (async () => {
   const tools = await getOnChainTools({
     wallet: viem(walletClient),
     plugins: [
+      wallets(),
       worldstore(),
       crossmintHeadlessCheckout(
         {
-          apiKey:
-            "sk_production_5YV474EEkpYcyzVrUx3TVbEm5fA1mNw4Ejb7UTbAyMEWLhXXEAMVZNrUJegFC4GCxZxu8b7gtqd4jFUs7Rksc3xbqHDAtyS9Sv7EdSshuC2acPsmiVPuDq6XC57nUcZBu5YqsioAWDtvdjmBX5afpECTso35VGRBXSFRJqUYtE7XeFB5um47PHrVsuXimRAvvLuDPyULxXMnAGRk15NabMci",
+          apiKey,
         },
         worldstoreSchema
       ),
@@ -89,22 +97,17 @@ const worldstoreSchema = z.object({
     {
       role: "system",
       content:
-        "You are a friendly and knowledgeable World Store retail assistant. Your goal is to help customers discover and purchase amazing products from around the world. Be enthusiastic, helpful, and always prioritize the customer's needs. Keep responses concise but warm.",
-    },
-    {
-      role: "system",
-      content:
         "When buying a product from a store, prefer to use <chain>:<contract_address> as the collection locator.",
     },
     {
-      role: "system",
-      content:
-        "When buying a product from a store, You MUST collect the user's email address and use it as the payment.receiptEmail, and recipient.walletAddress MUST be the user's wallet address",
-    },
+        role: "system",
+        content:
+          "When buying a product from a store, payment.payerAddress MUST be the address returned from the get_address tool.",
+      },
     {
       role: "system",
       content:
-        "When buying a product from a store, You MUST receive explicit confirmation from the user before you start the checkout process.",
+        "When buying a product from a store, recipient.walletAddress MUST be the EVM wallet address associated with the user's Twitter username. You MUST create an EVM wallet for the twitter username if they don't have one.",
     },
     {
       role: "system",
@@ -114,7 +117,7 @@ const worldstoreSchema = z.object({
     {
       role: "system",
       content:
-        "After buying a product from a store, the user needs to start a redemption in order to initiate the shipment process. DO NOT collect the user's shipping address before they bought the product.",
+        "After buying a product from a store, DO NOT start the redemption process.",
     },
   ];
 
