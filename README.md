@@ -42,11 +42,31 @@ cp .env.template .env
 - `OPENAI_API_KEY`: Your OpenAI API key for AI interactions
 - `RPC_PROVIDER_URL`: Base network RPC endpoint for transaction processing
 
-6. Start the agent:
+6. Start the agent in your preferred mode:
 
 ```bash
+# For human users - includes friendly prompts and confirmations
 pnpm start:human
+
+# For AI agents - streamlined interface with minimal prompts
+pnpm start:agent
 ```
+
+### Mode Differences
+
+#### Human Mode (`start:human`)
+
+- Designed for human users
+- Friendly conversational interface
+- Additional safety confirmations before purchases
+- Step-by-step guidance through the shopping process
+- Detailed explanations and help available
+
+#### Agent Mode (`start:agent`)
+
+- Optimized for interactions with AI agent giveaways
+- Streamlined responses
+- Purchase products to users, by Twitter username
 
 7. Interact with the agent:
    - Tell the agent what you are looking for, e.g.
