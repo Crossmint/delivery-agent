@@ -103,7 +103,7 @@ const { wallets } = crossmint(apiKey);
         role: "system",
         content:
           "When buying a product from a store, payment.payerAddress MUST be the address returned from the get_address tool.",
-      },
+    },
     {
       role: "system",
       content:

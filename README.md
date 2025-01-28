@@ -23,7 +23,7 @@ cd delivery-agent
 - Have your wallet's private key ready (otherwise, generate new wallet via `pnpm generate-wallet`)
 - Hold USDC
 - OpenAI API key
-
+- Crossmint API key
 3. Install dependencies:
 
 ```bash
@@ -39,8 +39,9 @@ cp .env.template .env
 5. Configure your variables:
 
 - `WALLET_PRIVATE_KEY`: Your wallet's private key (will be used for payment)
-- `OPENAI_API_KEY`: Your OpenAI API key for AI interactions
 - `RPC_PROVIDER_URL`: Base network RPC endpoint for transaction processing
+- `OPENAI_API_KEY`: Your OpenAI API key for AI interactions
+- `CROSSMINT_API_KEY`: Your Crossmint API key
 
 6. Start the agent in your preferred mode:
 
@@ -48,7 +49,7 @@ cp .env.template .env
 # For human users - includes friendly prompts and confirmations
 pnpm start:human
 
-# For AI agents - streamlined interface with minimal prompts
+# For AI agents - streamlined interface with minimal prompts to complete purchases
 pnpm start:agent
 ```
 
@@ -58,24 +59,17 @@ pnpm start:agent
 
 - Designed for human users
 - Friendly conversational interface
+   - "I want to order some goodies for the weekend"
+   - "Do you see any games available for sale?"
+   - "I want cookies"
 - Additional safety confirmations before purchases
 - Step-by-step guidance through the shopping process
-- Detailed explanations and help available
 
 #### Agent Mode (`start:agent`)
 
 - Optimized for interactions with AI agent giveaways
 - Streamlined responses
 - Purchase products to users, by Twitter username
-
-7. Interact with the agent:
-   - Tell the agent what you are looking for, e.g.
-     - "I want to order some goodies for the weekend"
-     - "Do you see any games available for sale?"
-     - "I want cookies"
-   - Specify which product you want to buy from the ones available
-   - Provide your email to confirm payment
-   - Ship the product to your address by providing your name and address
 
 ## 🚀 Keep track of your order
 
