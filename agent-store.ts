@@ -15,6 +15,7 @@ import { crossmintHeadlessCheckout } from "@goat-sdk/plugin-crossmint-headless-c
 import { LoadingSpinner } from "./LoadingSpinner";
 import { worldstore } from "@goat-sdk/plugin-worldstore";
 import { crossmint } from "@goat-sdk/crossmint";
+import { erc20, USDC } from "@goat-sdk/plugin-erc20";
 
 import "dotenv/config";
 
@@ -71,6 +72,9 @@ const { wallets } = crossmint(apiKey);
   const tools = await getOnChainTools({
     wallet: viem(walletClient),
     plugins: [
+      erc20({
+        tokens: [USDC],
+      }),   
       wallets(),
       worldstore(),
       crossmintHeadlessCheckout(

@@ -23,7 +23,8 @@ cd delivery-agent
 - Have your wallet's private key ready (otherwise, generate new wallet via `pnpm generate-wallet`)
 - Hold USDC
 - OpenAI API key
-- Crossmint API key
+- Crossmint API key (scopes required: `wallets.read`, `wallets.create`, `wallets:nft.read`, `wallets:messages.sign`, `wallets:signatures.create`, `users.read`, `wallets:signatures.read`, `orders.create`)
+
 3. Install dependencies:
 
 ```bash
@@ -41,7 +42,7 @@ cp .env.template .env
 - `WALLET_PRIVATE_KEY`: Your wallet's private key (will be used for payment)
 - `RPC_PROVIDER_URL`: Base network RPC endpoint for transaction processing
 - `OPENAI_API_KEY`: Your OpenAI API key for AI interactions
-- `CROSSMINT_API_KEY`: Your Crossmint API key
+- `CROSSMINT_API_KEY`: Your Crossmint API key 
 
 6. Start the agent in your preferred mode:
 

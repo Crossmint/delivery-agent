@@ -23,6 +23,9 @@ importers:
       '@goat-sdk/plugin-crossmint-headless-checkout':
         specifier: 0.0.5
         version: 0.0.5(@goat-sdk/core@0.4.6(zod@3.23.8))(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.21.49(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.23.8))
+      '@goat-sdk/plugin-erc20':
+        specifier: ^0.2.9
+        version: 0.2.9(@goat-sdk/core@0.4.6(zod@3.23.8))(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.21.49(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.23.8))
       '@goat-sdk/plugin-worldstore':
         specifier: 0.0.2
         version: 0.0.2(@goat-sdk/core@0.4.6(zod@3.23.8))
@@ -144,6 +147,12 @@ packages:
 
   '@goat-sdk/plugin-crossmint-headless-checkout@0.0.5':
     resolution: {integrity: sha512-TTpWpSI8Q3LwL7y4ksiajZJh9ueVplcu6GZL9QEwOOKdCIQ/SCA1L8A67Zv3bCHyuHSRv6tSxVaPPi3Bi6Fzvw==}
+    peerDependencies:
+      '@goat-sdk/core': 0.4.6
+      viem: 2.21.49
+
+  '@goat-sdk/plugin-erc20@0.2.9':
+    resolution: {integrity: sha512-lUhCDn55wqccq82HKd2CKlYx33Cz3hWYkevwAdgTLD78Bk9gCURw11f+02YKYyYPFaxN17bC0UPrJ51DNitAAw==}
     peerDependencies:
       '@goat-sdk/core': 0.4.6
       viem: 2.21.49
@@ -752,6 +761,17 @@ snapshots:
       zod: 3.23.8
     transitivePeerDependencies:
       - '@datadog/browser-rum'
+      - bufferutil
+      - typescript
+      - utf-8-validate
+
+  '@goat-sdk/plugin-erc20@0.2.9(@goat-sdk/core@0.4.6(zod@3.23.8))(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.21.49(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.23.8))':
+    dependencies:
+      '@goat-sdk/core': 0.4.6(zod@3.23.8)
+      '@goat-sdk/wallet-evm': 0.2.7(@goat-sdk/core@0.4.6(zod@3.23.8))(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)
+      viem: 2.21.49(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.23.8)
+      zod: 3.23.8
+    transitivePeerDependencies:
       - bufferutil
       - typescript
       - utf-8-validate
