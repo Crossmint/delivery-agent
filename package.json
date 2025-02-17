@@ -2,29 +2,35 @@
   "name": "delivery-agent",
   "version": "1.0.0",
   "description": "Worldstore delivery agent",
-  "main": "index.ts",
   "scripts": {
-    "start:human": "pnpm dlx ts-node human-cli.ts",
-    "start:agent": "pnpm dlx ts-node agent-store.ts",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "start:agent": "pnpm dlx ts-node agent.ts",
     "generate-wallet": "pnpm dlx ts-node walletScript.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "1.1.0",
     "@goat-sdk/adapter-vercel-ai": "0.2.7",
     "@goat-sdk/core": "0.4.6",
-    "@goat-sdk/crossmint": "0.3.15",
-    "@goat-sdk/plugin-crossmint-headless-checkout": "0.0.5",
+    "@goat-sdk/plugin-crossmint-headless-checkout": "0.0.8",
     "@goat-sdk/plugin-erc20": "^0.2.9",
-    "@goat-sdk/plugin-worldstore": "0.0.2",
     "@goat-sdk/wallet-viem": "0.2.6",
     "ai": "4.1.0",
     "dotenv": "^16.3.1",
+    "next": "15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "viem": "2.21.49",
-    "zod": "3.23.8"
+    "tailwindcss": "^3.x",
+    "postcss": "^8.x",
+    "autoprefixer": "^10.x"
   },
   "devDependencies": {
-    "@types/node": "22.7.4"
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
   }
 }
