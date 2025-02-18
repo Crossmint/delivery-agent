@@ -117,7 +117,7 @@ const getUserInput = () => {
         },
         {
           role: "system",
-          content: "Always call get_address first and store its result. Use EXACTLY that address value for payment.payerAddress in subsequent operations. Do not use any other address."
+          content: "Always call get_address first and store its result. Use EXACTLY that address value for payment.payerAddress in subsequent operations. DO NOT use any other address, such as 3GectP9HqkXryazFmGXmQhfgAvmYyKkZBK3HKCwaqyTc."
         },
         ...conversationHistory.map(msg => ({
           role: msg.role,
