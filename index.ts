@@ -2,13 +2,13 @@ import { createInterface } from "node:readline";
 import { openai } from "@ai-sdk/openai";
 import { CoreMessage, generateText } from "ai";
 
+// GOAT Plugins
 import { getOnChainTools } from "@goat-sdk/adapter-vercel-ai";
 import { crossmintHeadlessCheckout } from "@goat-sdk/plugin-crossmint-headless-checkout";
 import { splToken, USDC } from "@goat-sdk/plugin-spl-token";
-
-// Solana
-import { Connection, Keypair } from "@solana/web3.js";
 import { solana } from "@goat-sdk/wallet-solana";
+
+import { Connection, Keypair } from "@solana/web3.js";
 import base58 from "bs58";
 import "dotenv/config";
 
@@ -28,13 +28,11 @@ interface ChatMessage {
 
 const conversationHistory: ChatMessage[] = [];
 
-// Create readline interface for user input
 const rl = createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-// Function to get user input
 const getUserInput = () => {
   return new Promise<string>((resolve) => {
     rl.question("You: ", (input) => {
@@ -42,10 +40,6 @@ const getUserInput = () => {
     });
   });
 };
-
-const asciiArt = `
-⛰️  Mountain DAO AI Shopping Assistant
-`;
 
 (async () => {
   try {
@@ -58,7 +52,6 @@ const asciiArt = `
     });
 
     console.clear();
-    console.log(asciiArt);
     console.log("👋 Welcome! How can I assist you with your shopping today?");
     console.log("Type 'exit' to end the conversation.\n");
 
@@ -71,7 +64,6 @@ const asciiArt = `
         break;
       }
 
-      // Add user message to history
       conversationHistory.push({
         role: 'user',
         content: userInput,
