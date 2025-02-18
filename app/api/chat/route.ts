@@ -2,52 +2,25 @@ import { NextResponse } from 'next/server';
 import { openai } from "@ai-sdk/openai";
 import { CoreMessage, generateText } from "ai";
 
-import { http, WalletClient } from "viem";
-import { createWalletClient } from "viem";
-import { privateKeyToAccount } from "viem/accounts";
-import { base } from "viem/chains";
-
 import { getOnChainTools } from "@goat-sdk/adapter-vercel-ai";
 import { viem } from "@goat-sdk/wallet-viem";
 import { crossmintHeadlessCheckout } from "@goat-sdk/plugin-crossmint-headless-checkout";
 import { erc20, USDC as EVM_USDC } from "@goat-sdk/plugin-erc20";
-import { splToken, USDC as SPL_USDC } from "@goat-sdk/plugin-spl-token";
+import { splToken, USDC } from "@goat-sdk/plugin-spl-token";
 
 // Solana
 import { Connection, Keypair } from "@solana/web3.js";
 import { solana } from "@goat-sdk/wallet-solana";
 import base58 from "bs58";
 
-// Determine wallet type based on RPC URL
-const isSolanaWallet = process.env.RPC_PROVIDER_URL?.includes('helius');
-
-// Initialize appropriate wallet
-let walletClient: WalletClient;
-let keypair: Keypair;
-let connection: Connection;
-
-if (isSolanaWallet) {
-  connection = new Connection(process.env.RPC_PROVIDER_URL as string);
-  keypair = Keypair.fromSecretKey(
-    base58.decode(process.env.WALLET_PRIVATE_KEY as string)
-  );
-} else {
-  const account = privateKeyToAccount(
-    process.env.WALLET_PRIVATE_KEY as `0x${string}`
-  );
-  walletClient = createWalletClient({
-    account,
-    transport: http(process.env.RPC_PROVIDER_URL),
-    chain: base,
-  });
-}
+const connection = new Connection(process.env.RPC_PROVIDER_URL as string);
+const keypair = Keypair.fromSecretKey(base58.decode(process.env.WALLET_PRIVATE_KEY as string));
 
 const apiKey = process.env.CROSSMINT_API_KEY;
 if (!apiKey) {
   throw new Error("CROSSMINT_API_KEY is not set");
 }
 
-// Add these interfaces at the top
 interface ChatMessage {
   id: string;
   role: 'user' | 'assistant' | 'system';
@@ -67,15 +40,10 @@ export async function POST(req: Request) {
       id: `user-${Date.now()}`
     });
 
-    // Reference to existing tools setup
     const tools = await getOnChainTools({
-      wallet: isSolanaWallet 
-        ? solana({ keypair, connection }) 
-        : viem(walletClient),
+      wallet: solana({ keypair, connection }),
       plugins: [
-        isSolanaWallet 
-          ? splToken({ tokens: [SPL_USDC] })
-          : erc20({ tokens: [EVM_USDC] }),
+        splToken({ tokens: [USDC] }),
         crossmintHeadlessCheckout({ apiKey: apiKey as string }),
       ],
     });
@@ -106,6 +74,11 @@ export async function POST(req: Request) {
         role: "system",
         content:
           "When buying a product, require the user to provide a valid shipping address and email address.",
+      },
+      {
+        role: "system",
+        content:
+          "When buying a product, payment.payerAddress MUST be a valid Solana public key.",
       },
       {
         role: "system",
@@ -142,6 +115,10 @@ export async function POST(req: Request) {
         content:
           "When a user provides their shipping address in the format 'Name, Street, City, State ZIP, Country', parse and store these details. Do not ask for the address again in the same conversation.",
       },
+      {
+        role: "system",
+        content: "When buying a product on Solana chain, payment.payerAddress MUST be a base58-encoded Solana public key (e.g., 'DRvw7BSugmVNWuqLHJWrQRRHB2aqBZspPwsQ8q9LUwPk'). Never use 0x-style addresses for Solana transactions."
+      },
       ...conversationHistory
     ];
 
@@ -150,19 +127,33 @@ export async function POST(req: Request) {
       tools,
       maxSteps: 5,
       messages,
-      onStepFinish: (step) => {
-        if ('tool' in step) {
-          console.log('\n🔧 Tool Called:', {
-            name: (step.tool as { name: string, args: any }).name,
-            args: (step.tool as { name: string, args: any }).args,
-            result: (step as any).result,
-            timestamp: new Date().toISOString()
-          });
+      onStepFinish: (step: any) => {
+        console.log('\n==== STEP START ====');
+        
+        try {
+          if ('tool' in step) {
+            const toolStep = step.tool as { name: string, args: any };
+            
+            if (toolStep.name === 'buy_token' && toolStep.args.payment?.payerAddress) {
+              if (toolStep.args.payment.payerAddress.startsWith('0x')) {
+                throw new Error('Invalid Solana address format. Expected base58-encoded public key.');
+              }
+            }
+            
+            console.log('🔧 Tool Execution:', {
+              name: toolStep.name,
+              arguments: toolStep.args,
+              error: step.error || null
+            });
+          }
+        } catch (error) {
+          console.error('❌ Error processing step:', error);
         }
+        
+        console.log('==== STEP END ====\n');
       }
     });
 
-    // Add assistant response to history
     conversationHistory.push({
       role: 'assistant',
       content: result.text,
@@ -171,7 +162,13 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ message: result.text });
   } catch (error) {
-    console.error('Error processing chat:', error);
+    debugger;
+    console.error('Detailed error in chat processing:', {
+      error,
+      message: (error as Error).message,
+      stack: (error as Error).stack,
+      cause: (error as any).cause
+    });
     return NextResponse.json(
       { error: 'Failed to process chat message' },
       { status: 500 }
