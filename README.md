@@ -48,7 +48,7 @@ Configure the following in your `.env`:
 5. Start the development server:
 
 ```bash
-pnpm dev
+pnpm start
 ```
 
 ## 💬 How to Use
