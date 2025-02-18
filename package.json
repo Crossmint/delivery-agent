@@ -26,7 +26,11 @@
     "viem": "2.21.49",
     "tailwindcss": "^3.x",
     "postcss": "^8.x",
-    "autoprefixer": "^10.x"
+    "autoprefixer": "^10.x",
+    "bs58": "^6.0.0",
+    "@goat-sdk/wallet-solana": "0.2.13",
+    "@solana/web3.js": "1.98.0",
+    "@goat-sdk/plugin-spl-token": "0.2.15"
   },
   "devDependencies": {
     "@types/node": "^20",

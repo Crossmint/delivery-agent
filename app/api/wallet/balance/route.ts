@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { privateKeyToAccount } from "viem/accounts";
+import { Keypair } from "@solana/web3.js";
+import base58 from "bs58";
 
 export async function GET() {
   try {
@@ -15,13 +17,25 @@ export async function GET() {
       throw new Error('CROSSMINT_API_KEY is not set');
     }
 
-    const account = privateKeyToAccount(
-      process.env.WALLET_PRIVATE_KEY as `0x${string}`
-    );
+    // Determine wallet type based on RPC URL
+    const isSolanaWallet = process.env.RPC_PROVIDER_URL?.includes('helius');
 
-    console.log('Wallet address:', account.address);
+    let walletAddress: string;
+    if (isSolanaWallet) {
+      const keypair = Keypair.fromSecretKey(
+        base58.decode(process.env.WALLET_PRIVATE_KEY)
+      );
+      walletAddress = keypair.publicKey.toString();
+    } else {
+      const account = privateKeyToAccount(
+        process.env.WALLET_PRIVATE_KEY as `0x${string}`
+      );
+      walletAddress = account.address;
+    }
 
-    const url = `https://www.crossmint.com/api/v1-alpha2/wallets/${account.address}/balances?tokens=usdc,sol,eth`;
+    console.log('Wallet address:', walletAddress);
+
+    const url = `https://www.crossmint.com/api/v1-alpha2/wallets/${walletAddress}/balances?tokens=usdc,sol,eth`;
     console.log('Fetching from URL:', url);
 
     const response = await fetch(url, {

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { openai } from "@ai-sdk/openai";
 import { CoreMessage, generateText } from "ai";
 
-import { http } from "viem";
+import { http, WalletClient } from "viem";
 import { createWalletClient } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { base } from "viem/chains";
@@ -10,17 +10,37 @@ import { base } from "viem/chains";
 import { getOnChainTools } from "@goat-sdk/adapter-vercel-ai";
 import { viem } from "@goat-sdk/wallet-viem";
 import { crossmintHeadlessCheckout } from "@goat-sdk/plugin-crossmint-headless-checkout";
-import { erc20, USDC } from "@goat-sdk/plugin-erc20";
+import { erc20, USDC as EVM_USDC } from "@goat-sdk/plugin-erc20";
+import { splToken, USDC as SPL_USDC } from "@goat-sdk/plugin-spl-token";
 
-const account = privateKeyToAccount(
-  process.env.WALLET_PRIVATE_KEY as `0x${string}`
-);
+// Solana
+import { Connection, Keypair } from "@solana/web3.js";
+import { solana } from "@goat-sdk/wallet-solana";
+import base58 from "bs58";
 
-const walletClient = createWalletClient({
-  account: account,
-  transport: http(process.env.RPC_PROVIDER_URL),
-  chain: base,
-});
+// Determine wallet type based on RPC URL
+const isSolanaWallet = process.env.RPC_PROVIDER_URL?.includes('helius');
+
+// Initialize appropriate wallet
+let walletClient: WalletClient;
+let keypair: Keypair;
+let connection: Connection;
+
+if (isSolanaWallet) {
+  connection = new Connection(process.env.RPC_PROVIDER_URL as string);
+  keypair = Keypair.fromSecretKey(
+    base58.decode(process.env.WALLET_PRIVATE_KEY as string)
+  );
+} else {
+  const account = privateKeyToAccount(
+    process.env.WALLET_PRIVATE_KEY as `0x${string}`
+  );
+  walletClient = createWalletClient({
+    account,
+    transport: http(process.env.RPC_PROVIDER_URL),
+    chain: base,
+  });
+}
 
 const apiKey = process.env.CROSSMINT_API_KEY;
 if (!apiKey) {
@@ -49,9 +69,13 @@ export async function POST(req: Request) {
 
     // Reference to existing tools setup
     const tools = await getOnChainTools({
-      wallet: viem(walletClient),
+      wallet: isSolanaWallet 
+        ? solana({ keypair, connection }) 
+        : viem(walletClient),
       plugins: [
-        erc20({ tokens: [USDC] }),   
+        isSolanaWallet 
+          ? splToken({ tokens: [SPL_USDC] })
+          : erc20({ tokens: [EVM_USDC] }),
         crossmintHeadlessCheckout({ apiKey: apiKey as string }),
       ],
     });
@@ -61,7 +85,7 @@ export async function POST(req: Request) {
     const messages: CoreMessage[] = [
       {
         role: "system",
-        content: "Always ask for ALL required information in the first response: 1) shipping address, 2) email address, 3) payment method (USDC, SOL, or ETH), and 4) preferred chain (base or solana). Only proceed with the purchase when all information is provided."
+        content: "Always ask for ALL required information in the first response: 1) name, 2) shipping address, 3) email address, 4) payment method (USDC, SOL, or ETH), and 5) preferred chain (EVM, Solana, or others). Only proceed with the purchase when all information is provided."
       },
       {
         role: "system",
@@ -96,11 +120,6 @@ export async function POST(req: Request) {
       {
         role: "system",
         content:
-          "Once a tool returns a result, DO NOT call the same tool again with the same parameters.",
-      },
-      {
-        role: "system",
-        content:
           "When buying a product, use the checkout tool with recipient information (email and shipping address) rather than wallet addresses.",
       },
       {
@@ -122,11 +141,6 @@ export async function POST(req: Request) {
         role: "system",
         content:
           "When a user provides their shipping address in the format 'Name, Street, City, State ZIP, Country', parse and store these details. Do not ask for the address again in the same conversation.",
-      },
-      {
-        role: "system",
-        content:
-          "When a user provides an email address, store it and use it for the order. Do not ask for the email again in the same conversation.",
       },
       ...conversationHistory
     ];
