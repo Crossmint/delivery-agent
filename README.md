@@ -1,29 +1,31 @@
-# 🤖 AI Delivery Agent
+# 🛍️ Amazon AI Shopper
 
-A CLI-based delivery AI agent that buys real world items from Worldstore, an onchain marketplace. Pick the agentic framework you want to use and happy shopping!
+An AI-powered shopping assistant that helps you purchase items from Amazon with an onchain balance.
 
 ## 🌟 Features
 
-- Natural conversation interface for shopping
-- Onchain purchase of real world items
-- Order tracking and status updates
+- Natural language shopping interface
+- Cryptocurrency payments (USDC on Solana)
+- Automatic order processing and receipt
+- Real-time wallet balance display
+- Secure transaction handling
 
-## 🚀 Get Started
+## 🚀 Getting Started
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/worldstore/delivery-agent.git
-cd delivery-agent
+git clone https://github.com/Paella-Labs/mnt-dao-agent.git 
+cd mnt-dao-agent
 ```
 
 2. Prerequisites:
 
-- Node & pnpm installed
-- Have your wallet's private key ready (otherwise, generate new wallet via `pnpm generate-wallet`)
-- Hold USDC
+- Node.js & pnpm installed
+- Solana wallet with private key
+- USDC balance on Solana
 - OpenAI API key
-- Crossmint API key (scopes required: `wallets.read`, `wallets.create`, `wallets:nft.read`, `wallets:messages.sign`, `wallets:signatures.create`, `users.read`, `wallets:signatures.read`, `orders.create`)
+- Crossmint API key (with required scopes)
 
 3. Install dependencies:
 
@@ -31,48 +33,34 @@ cd delivery-agent
 pnpm install
 ```
 
-4. Copy `.env.template` to `.env` to fill in the appropriate values.
+4. Set up environment variables:
 
 ```bash
 cp .env.template .env
 ```
 
-5. Configure your variables:
+Configure the following in your `.env`:
+- `WALLET_PRIVATE_KEY`: Your Solana wallet's private key
+- `RPC_PROVIDER_URL`: Solana RPC endpoint (e.g., Helius)
+- `OPENAI_API_KEY`: Your OpenAI API key
+- `CROSSMINT_API_KEY`: Your Crossmint API key
 
-- `WALLET_PRIVATE_KEY`: Your wallet's private key (will be used for payment)
-- `RPC_PROVIDER_URL`: Base network RPC endpoint for transaction processing
-- `OPENAI_API_KEY`: Your OpenAI API key for AI interactions
-- `CROSSMINT_API_KEY`: Your Crossmint API key 
-
-6. Start the agent in your preferred mode:
+5. Start the development server:
 
 ```bash
-# For human users - includes friendly prompts and confirmations
-pnpm start:human
-
-# For AI agents - streamlined interface with minimal prompts to complete purchases
-pnpm start:agent
+pnpm dev
 ```
 
-### Mode Differences
+## 💬 How to Use
 
-#### Human Mode (`start:human`)
+1. Visit the application in your browser
+2. Your wallet balance will be displayed at the top
+3. Start a conversation with the AI assistant
+4. Share what you'd like to buy from Amazon
+5. Provide shipping details when prompted
+6. Confirm the purchase
+7. Track your order via email notifications
 
-- Designed for human users
-- Friendly conversational interface
-   - "I want to order some goodies for the weekend"
-   - "Do you see any games available for sale?"
-   - "I want cookies"
-- Additional safety confirmations before purchases
-- Step-by-step guidance through the shopping process
+## 📦 Order Tracking
 
-#### Agent Mode (`start:agent`)
-
-- Optimized for interactions with AI agent giveaways
-- Streamlined responses
-- Purchase products to users, by Twitter username
-
-## 🚀 Keep track of your order
-
-- Upon payment, check your email for a purchase receipt
-- Expect an email over the next couple of days with shipping details
+After purchase you'll receive an order confirmation email.
